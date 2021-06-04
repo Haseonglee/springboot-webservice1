@@ -1,4 +1,8 @@
 com/seong/springboot/web/HelloController.java
  com.seong.springboot.web.HelloController
+com/seong/springboot/web/CtController.java
+ com.seong.springboot.web.CtController
 com/seong/springboot/Application.java
  com.seong.springboot.Application
+com/seong/springboot/web/IndexController.java
+ com.seong.springboot.web.IndexController
