@@ -3,192 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <title>코로나 진단 웹 페이지</title>
-    <!--부트스트랩 기본셋-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--carousel사진 크기-->
-    <style>
-        /* stylelint-disable selector-list-comma-newline-after */
+   <!--부트스트랩 기본셋-->
+   <link rel="stylesheet" href="css/bootstrap.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script type="text/javascript" src="js/bootstrap.js"></script>
+   <!--carousel사진 크기-->
+  <style> 
+ 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
 }
 
 .display-4 {
-  font-size: 2.5rem;
+font-size: 2.5rem;
 }
 @media (min-width: 768px) {
-  .display-4 {
-    font-size: 3rem;
-  }
+.display-4 {
+  font-size: 3rem;
+}
 }
 
 .card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
+height: 100%;
+border-radius: 0 3px 3px 0;
 }
 
 .flex-auto {
-  flex: 0 0 auto;
+flex: 0 0 auto;
 }
 
 .h-250 { height: 250px; }
 @media (min-width: 768px) {
-  .h-md-250 { height: 250px; }
+.h-md-250 { height: 250px; }
 }
-    </style>
+  </style>
+  
+  </head>
+  <body>
+     <header>
+<!--네비게이션 바-->
+  <div class="pt-5">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!--바 색깔-->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+        <img src="img/logobl.png"alt="" width="52" height="38"> <!--로고 이미지-->
+    </a>
+    <!--화면 크기가 줄어들면 메뉴버튼-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-</head>
-<body>
-<header>
-    <!--네비게이션 바-->
-    <div class="pt-5">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!--바 색깔-->
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logobl.png"alt="" width="52" height="38"> <!--로고 이미지-->
-                </a>
-                <!--화면 크기가 줄어들면 메뉴버튼-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ct.html">CT</a>
+        </li>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="project.html">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ct.html">CT</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                etc
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="map.html">Map</a></li>
-                                <li><a class="dropdown-item" href="news.html">News</a></li>
-                            </ul>
-
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            etc
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="map.html">Map</a></li>
+            <li><a class="dropdown-item" href="news.html">News</a></li>
+          </ul>
+        
+      </ul>
+  
     </div>
-</header>
-<main>
-    <div class="container">
+  </div>
+</nav>
+</div>
+     </header>
+     <main>
+      <div class="container">
         <header class="blog-header py-3">
-
+         
         </header>
-
+      
         <main class="container">
-            <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-                <div class="col-md-6 px-0">
-                    <h1 class="display-4 fst-italic">COVID-19 정보/논문</h1>
-                    <p class="lead my-3">You can find information or articles related to COVID-19</p>
-                    <p class="lead mb-0"><a href="ct.html" class="text-white fw-bold">CT검사하러 가기...</a></p>
-                </div>
+          <div class="p-4 p-md-5 mb-4 text-white rounded bg-primary">
+            <div class="col-md-6 px-0">
+              <h1 class="display-4 fst-italic">COVID-19 정보/논문</h1>
+              <p class="lead my-3">You can find information or articles related to COVID-19</p>
+              
             </div>
+          </div>
+        
+      <!--논문 링크 포스트들-->
+        <div class="row mb-2">
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">정보</strong>
+                <h3 class="mb-0">KCDC</h3>
+                <div class="mb-3 text-muted"></div> <!--줄간격-->
+                <p class="card-text mb-auto">질병관리본부</p>
+                <a href="http://ncov.mohw.go.kr/" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+               <img src="img/KCDC.jpg" width="200" height="250">
+      
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">정보</strong>
+                <h3 class="mb-0">WHO</h3>
+                <div class="mb-3 text-muted"></div>
+                <p class="mb-auto">세계 보건 기구(World Health Organization) </p>
+                <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="img/WHO.png" width="200" height="250">
+      
+              </div>
+            </div>
+          </div>
 
-            <!--논문 링크 포스트들-->
-            <div class="row mb-2">
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-primary">정보</strong>
-                            <h3 class="mb-0">KCDC</h3>
-                            <div class="mb-3 text-muted"></div> <!--줄간격-->
-                            <p class="card-text mb-auto">질병관리본부</p>
-                            <a href="http://ncov.mohw.go.kr/" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="img/KCDC.jpg" width="200" height="250">
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">정보</strong>
+                <h3 class="mb-0">CDC</h3>
+                <div class="mb-3 text-muted"></div>
+                <p class="mb-auto">미국 Centers for Disease Control and Prevention</p>
+                <a href="https://www.coronavirus.gov/" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="img/CDC.png" width="200" height="250">
+      
+              </div>
+            </div>
+          </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-primary">정보</strong>
-                            <h3 class="mb-0">WHO</h3>
-                            <div class="mb-3 text-muted"></div>
-                            <p class="mb-auto">세계 보건 기구(World Health Organization) </p>
-                            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="img/WHO.png" width="200" height="250">
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">정보</strong>
+                <h3 class="mb-0">NIH</h3>
+                <div class="mb-3 text-muted"></div>
+                <p class="mb-auto">미국 National Institutes of Health</p>
+                <a href="https://covid19.nih.gov/" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="img/NIH.png" width="200" height="250">
+      
+              </div>
+            </div>
+          </div>
 
-                        </div>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">논문</strong>
+                <h3 class="mb-0">PubMed</h3>
+                <div class="mb-3 text-muted"></div>
+                <p class="mb-auto">생명과학 및 생물의학 그리고 건강심리학등 보건 및 복지에 관한 폭넓은 주제에 대한 참조 및 요약을 담고 있는 MEDLINE 데이터베이스를 주로 접근할 수 있게 해 주는 자유 검색 엔진</p>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/?otool=ikrkumlib&term=(2019-nCoV%20OR%20" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="img/pubmed.png" width="200" height="250">
+      
+              </div>
+            </div>
+          </div>
 
-
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-primary">정보</strong>
-                            <h3 class="mb-0">CDC</h3>
-                            <div class="mb-3 text-muted"></div>
-                            <p class="mb-auto">미국 Centers for Disease Control and Prevention</p>
-                            <a href="https://www.coronavirus.gov/" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="img/CDC.png" width="200" height="250">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-primary">정보</strong>
-                            <h3 class="mb-0">NIH</h3>
-                            <div class="mb-3 text-muted"></div>
-                            <p class="mb-auto">미국 National Institutes of Health</p>
-                            <a href="https://covid19.nih.gov/" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="img/NIH.png" width="200" height="250">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">논문</strong>
-                            <h3 class="mb-0">PubMed</h3>
-                            <div class="mb-3 text-muted"></div>
-                            <p class="mb-auto">펍메드는 생명과학 및 생물의학 그리고 건강심리학등 보건 및 복지에 관한 폭넓은 주제에 대한 참조 및 요약을 담고 있는 MEDLINE 데이터베이스를 주로 접근할 수 있게 해 주는 자유 검색 엔진</p>
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/?otool=ikrkumlib&term=(2019-nCoV%20OR%20" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="img/pubmed.png" width="200" height="250">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                        <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">논문</strong>
-                            <h3 class="mb-0">KMBASE</h3>
-                            <div class="mb-3 text-muted"></div>
-                            <p class="mb-auto">KMBASE는 의과학연구정보센터에서 운영하는 의학,간호학, 치의학, 보건학 등에서 발간되는 저널과 해외저널에 발행되는 한국연구자의 논문정보를 제공하는 보건의료분야 최대 학술 데이터베이스</p>
-                            <a href="https://kmbase.medric.or.kr/" class="stretched-link">Continue reading</a>
-                        </div>
-                        <div class="col-auto d-none d-lg-block">
-                            <img src="img/KMBASE.PNG" width="200" height="250">
-
-                        </div>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success">논문</strong>
+                <h3 class="mb-0">KMBASE</h3>
+                <div class="mb-3 text-muted"></div>
+                <p class="mb-auto">의과학연구정보센터에서 운영하는 의학,간호학, 치의학, 보건학 등에서 발간되는 저널과 해외저널에 발행되는 한국연구자의 논문정보를 제공하는 보건의료분야 최대 학술 데이터베이스</p>
+                <a href="https://kmbase.medric.or.kr/" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+                <img src="img/KMBASE.PNG" width="200" height="250">
+      
+              </div>
+            </div>
+          </div>
 
 
 

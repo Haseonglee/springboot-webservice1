@@ -3,70 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <title>코로나 진단 웹 페이지</title>
-    <!--부트스트랩 기본셋-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!--carousel사진 크기-->
-    <style>
-
+     <!--부트스트랩 기본셋-->
+     <link rel="stylesheet" href="css/bootstrap.css">
+     <link rel="stylesheet" href="map.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <script type="text/javascript" src="js/bootstrap.js"></script>
+     <!--carousel사진 크기-->
+    <style> 
+        .featurette-divider{
+          margin: 2rem auto;
+          width: 500px;
+        }
     </style>
-
-</head>
-<body>
-<header>
-    <!--네비게이션 바-->
+    
+    </head>
+    <body>
+       <header>
+ <!--네비게이션 바-->
     <div class="pt-5">
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!--바 색깔-->
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logobl.png"alt="" width="52" height="38"> <!--로고 이미지-->
-                </a>
-                <!--화면 크기가 줄어들면 메뉴버튼-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+ <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!--바 색깔-->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+          <img src="img/logobl.png"alt="" width="52" height="38"> <!--로고 이미지-->
+      </a>
+      <!--화면 크기가 줄어들면 메뉴버튼-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="project.html">Project</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ct.html">CT</a>
-                        </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ct.html">CT</a>
+          </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                etc
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="map.html">Map</a></li>
-                                <li><a class="dropdown-item" href="news.html">News</a></li>
-                            </ul>
-
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              etc
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="map.html">Map</a></li>
+              <li><a class="dropdown-item" href="news.html">News</a></li>
+       
+    
+      </div>
     </div>
-</header>
-<main>
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center ">
-        <h2 class="display-5">코로나 전담 병원</h2>
-        <div align="center">
-            <div id="map" style="width:70%; height: 70vh;"></div>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOcxE4z0FMf-B4XvMTolq0naNuUUcEo4k&callback=initMap&region=kr"></script>
-            <script>
-              function initMap() {
-                var seoul = { lat: 35.1595454 ,lng: 126.8526012 };
-                var map = new google.maps.Map(
-                  document.getElementById('map'), {
-                    zoom: 12,
-                    center: seoul
-                  });
+  </nav>
+</div>
+       </header>
+       <main>
+        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center ">
+            <h2 class="display-5">코로나 관련 건물 지도</h2>
+            <hr class="featurette-divider">
+            
+        
+          
+            <div id="mapwrap"> 
+              <!-- 지도가 표시될 div -->
+              <div id="map" style="width:100%;height:480px;margin: 0 auto;"></div>
+              <!-- 지도 위에 표시될 마커 카테고리 -->
+              <div class="category">
+                  <ul>
+                      <li id="clinicMenu" onclick="changeMarker('clinic')">
+                          <span class="ico_comm ico_clinic"></span>
+                          진료소
+                      </li>
+                      <li id="vcenterMenu" onclick="changeMarker('vcenter')">
+                          <span class="ico_comm ico_vcenter"></span>
+                          접종센터
+                      </li>
+                      <li id="hospitalMenu" onclick="changeMarker('hospital')">
+                          <span class="ico_comm ico_hospital"></span>
+                          병원
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          
+          <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=95f53688dce41436bd8779af1c1c80d4"></script>
+          <script>
+          var mapContainer = document.getElementById('map'), 
+                            mapOption = {
+                                center: new kakao.maps.LatLng(35.17631041107892, 126.90581669787173), // 현재위치를 찾을 수 없을때 좌표(전남대학교)
+                                level: 5, 
+                                mapTypeId : kakao.maps.MapTypeId.ROADMAP 
+                            }; 
+                    
+                        // 지도를 생성한다 
+                        var map = new kakao.maps.Map(mapContainer, mapOption); 
+                    
+                        // 지도 타입 변경 컨트롤을 생성한다
+                        var mapTypeControl = new kakao.maps.MapTypeControl();
+                    
+                        // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+                        map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);	
+                    
+                        // 지도에 확대 축소 컨트롤을 생성한다
+                        var zoomControl = new kakao.maps.ZoomControl();
+                    
+                        // 지도의 우측에 확대 축소 컨트롤을 추가한다
+                        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+                    
+                        // 지도 클릭 이벤트를 등록한다 (좌클릭 : click, 우클릭 : rightclick, 더블클릭 : dblclick)
+                        kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
+                          console.log('지도에서 클릭한 위치의 좌표는 ' + mouseEvent.latLng.toString() + ' 입니다.');
+                        });	
+                    
+                        //현재위치를 가져오는 코드
+                            if (navigator.geolocation) {
+                        
+                                 // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+                            navigator.geolocation.getCurrentPosition(function(position) {
+                            
+                            var lat = position.coords.latitude, // 위도
+                                lon = position.coords.longitude; // 경도
+                            
+                            var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                message = '<div style="padding:5px;">현재 위치</div>'; // 인포윈도우에 표시될 내용입니다
+                            
+                            // 마커와 인포윈도우를 표시합니다
+                            displayMarker(locPosition, message);
+                                
+                          });
+                        
+                            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                        
+                             var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+                                 message = 'geolocation을 사용할수 없어요..'
+                            
+                              displayMarker(locPosition, message);
+                            }
+                    
+                                // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+                                function displayMarker(locPosition, message) {
+                    
+                                 var marker = new kakao.maps.Marker({  
+                                  map: map, 
+                                 position: locPosition
+                                 }); 
+                        
+                                  var iwContent = message, // 인포윈도우에 표시할 내용
+                                      iwRemoveable = true;
+                    
+                                 var infowindow = new kakao.maps.InfoWindow({
+                                  content : iwContent,
+                                  removable : iwRemoveable
+                                });
+                      
+                                 infowindow.open(map, marker);
+                        
+                                  // 지도 중심좌표를 접속위치로 변경합니다
+                                 map.setCenter(locPosition);      
+                                }    
+          
+          // 진료소 마커가 표시될 좌표 배열입니다
+          var clinicPositions = [ 
+              new kakao.maps.LatLng(35.22112396871781, 126.84532908412129),
+              new kakao.maps.LatLng(35.1405634382721, 126.79370016325962),
+              new kakao.maps.LatLng(35.198111993796715, 126.8332004132186),
+              new kakao.maps.LatLng(35.203016180963374, 126.89763149787237),
+              new kakao.maps.LatLng(35.173566207936474, 126.9121044401983),
+              new kakao.maps.LatLng(35.142703877694295, 126.92143042368303),
+              new kakao.maps.LatLng(35.13951683815854, 126.92646328654634),
+              new kakao.maps.LatLng(35.14627022138779, 126.92333460928995),
+              new kakao.maps.LatLng(35.133404812362926, 126.85569904791387),
+              new kakao.maps.LatLng(35.15999093792816, 126.88923253080185),
+              new kakao.maps.LatLng(35.13736178976895, 126.91190918654549),
+              new kakao.maps.LatLng(35.13361922809293, 126.90225550188637)                
+          ];
+          
+          // 접종센터 마커가 표시될 좌표 배열입니다
+          var vcenterPositions = [
+              new kakao.maps.LatLng(35.216650564426665, 126.85021609535475),
+              new kakao.maps.LatLng(35.18112157754276, 126.90336256421004),
+              new kakao.maps.LatLng(35.142807995938675, 126.87980555653388),
+              new kakao.maps.LatLng(35.144821990391605, 126.92610938714623),
+              new kakao.maps.LatLng(35.13354297960159, 126.92857235685966),
+              new kakao.maps.LatLng(35.12226240617166, 126.89950931424126)
+          ];
+          
+          // 병원 마커가 표시될 좌표 배열입니다
+          var hospitalPositions = [
+          new kakao.maps.LatLng(35.22112396871781, 126.84532908412129),
+          new kakao.maps.LatLng(35.198111993796715, 126.8332004132186),
+          new kakao.maps.LatLng(35.203016180963374, 126.89763149787237),
+          new kakao.maps.LatLng(35.142703877694295, 126.92143042368303),
+          new kakao.maps.LatLng(35.13951683815854, 126.92646328654634),
+          new kakao.maps.LatLng(35.133404812362926, 126.85569904791387),
+          new kakao.maps.LatLng(35.13736178976895, 126.91190918654549)                       
+          ];    
+          
+          var markerImageSrc = 'img/category.png';  
+              clinicMarkers = [], // 진료소 마커 객체를 가지고 있을 배열입니다
+              vcenterMarkers = [], // 접종센터 마커 객체를 가지고 있을 배열입니다
+              hospitalMarkers = []; // 병원 마커 객체를 가지고 있을 배열입니다
+          
+              
+          createclinicMarkers(); // 진료소 마커를 생성하고 진료소 마커 배열에 추가합니다
+          createvcenterMarkers(); // 접종센터 마커를 생성하고 접종센터 마커 배열에 추가합니다
+          createhospitalMarkers(); // 병원 마커를 생성하고 병원 마커 배열에 추가합니다
+          
+          changeMarker('clinic'); // 지도에 진료소 마커가 보이도록 설정합니다    
+          
+          
+          // 마커이미지의 주소와, 크기, 옵션으로 마커 이미지를 생성하여 리턴하는 함수입니다
+          function createMarkerImage(src, size, options) {
+              var markerImage = new kakao.maps.MarkerImage(src, size, options);
+              return markerImage;            
+          }
+          
+          // 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수입니다
+          function createMarker(position, image) {
+              var marker = new kakao.maps.Marker({
+                  position: position,
+                  image: image
+              });
+              
+              return marker;  
+          }   
+             
+          // 진료소 마커를 생성하고 진료소 마커 배열에 추가하는 함수입니다
+          function createclinicMarkers() {
+              
+              for (var i = 0; i < clinicPositions.length; i++) {  
+                  
+                  var imageSize = new kakao.maps.Size(22, 26),
+                      imageOptions = {  
+                          spriteOrigin: new kakao.maps.Point(10, 0),    
+                          spriteSize: new kakao.maps.Size(36, 98)  
+                      };     
+                  
+                  // 마커이미지와 마커를 생성합니다
+                  var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),    
+                      marker = createMarker(clinicPositions[i], markerImage);  
+                  
+                  // 생성된 마커를 진료소 마커 배열에 추가합니다
+                  clinicMarkers.push(marker);
+              }     
+          }
+          
+          // 진료소 마커들의 지도 표시 여부를 설정하는 함수입니다
+          function setclinicMarkers(map) {        
+              for (var i = 0; i < clinicMarkers.length; i++) {  
+                  clinicMarkers[i].setMap(map);
+              }        
+          }
+          
+          // 접종센터 마커를 생성하고 접종센터 마커 배열에 추가하는 함수입니다
+          function createvcenterMarkers() {
+              for (var i = 0; i < vcenterPositions.length; i++) {
+                  
+                  var imageSize = new kakao.maps.Size(22, 26),
+                      imageOptions = {   
+                          spriteOrigin: new kakao.maps.Point(10, 36),    
+                          spriteSize: new kakao.maps.Size(36, 98)  
+                      };       
+               
+                  // 마커이미지와 마커를 생성합니다
+                  var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),    
+                      marker = createMarker(vcenterPositions[i], markerImage);  
+          
+                  // 생성된 마커를 접종센터 마커 배열에 추가합니다
+                  vcenterMarkers.push(marker);    
+              }        
+          }
+          
+          // 접종센터 마커들의 지도 표시 여부를 설정하는 함수입니다
+          function setvcenterMarkers(map) {        
+              for (var i = 0; i < vcenterMarkers.length; i++) {  
+                  vcenterMarkers[i].setMap(map);
+              }        
+          }
+          
+          // 병원 마커를 생성하고 병원 마커 배열에 추가하는 함수입니다
+          function createhospitalMarkers() {
+              for (var i = 0; i < hospitalPositions.length; i++) {
+                  
+                  var imageSize = new kakao.maps.Size(22, 26),
+                      imageOptions = {   
+                          spriteOrigin: new kakao.maps.Point(10, 72),    
+                          spriteSize: new kakao.maps.Size(36, 98)  
+                      };       
+               
+                  // 마커이미지와 마커를 생성합니다
+                  var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),    
+                      marker = createMarker(hospitalPositions[i], markerImage);  
+          
+                  // 생성된 마커를 병원 마커 배열에 추가합니다
+                  hospitalMarkers.push(marker);        
+              }                
+          }
+          
+          // 병원 마커들의 지도 표시 여부를 설정하는 함수입니다
+          function sethospitalMarkers(map) {        
+              for (var i = 0; i < hospitalMarkers.length; i++) {  
+                  hospitalMarkers[i].setMap(map);
+              }        
+          }
+          
+          // 카테고리를 클릭했을 때 type에 따라 카테고리의 스타일과 지도에 표시되는 마커를 변경합니다
+          function changeMarker(type){
+              
+              var clinicMenu = document.getElementById('clinicMenu');
+              var vcenterMenu = document.getElementById('vcenterMenu');
+              var hospitalMenu = document.getElementById('hospitalMenu');
+              
+              // 진료소 카테고리가 클릭됐을 때
+              if (type === 'clinic') {
+              
+                  // 진료소 카테고리를 선택된 스타일로 변경하고
+                  clinicMenu.className = 'menu_selected';
+                  
+                  // 접종센터과 병원 카테고리는 선택되지 않은 스타일로 바꿉니다
+                  vcenterMenu.className = '';
+                  hospitalMenu.className = '';
+                  
+                  // 진료소 마커들만 지도에 표시하도록 설정합니다
+                  setclinicMarkers(map);
+                  setvcenterMarkers(null);
+                  sethospitalMarkers(null);
+                  
+              } else if (type === 'vcenter') { // 접종센터 카테고리가 클릭됐을 때
+              
+                  // 접종센터 카테고리를 선택된 스타일로 변경하고
+                  clinicMenu.className = '';
+                  vcenterMenu.className = 'menu_selected';
+                  hospitalMenu.className = '';
+                  
+                  // 접종센터 마커들만 지도에 표시하도록 설정합니다
+                  setclinicMarkers(null);
+                  setvcenterMarkers(map);
+                  sethospitalMarkers(null);
+                  
+              } else if (type === 'hospital') { // 병원 카테고리가 클릭됐을 때
+               
+                  // 병원 카테고리를 선택된 스타일로 변경하고
+                  clinicMenu.className = '';
+                  vcenterMenu.className = '';
+                  hospitalMenu.className = 'menu_selected';
+                  
+                  // 병원 마커들만 지도에 표시하도록 설정합니다
+                  setclinicMarkers(null);
+                  setvcenterMarkers(null);
+                  sethospitalMarkers(map);  
+              }    
+          } 
+          </script>
 
-              }
-            </script>
 </main>
 </body>
 </html>
