@@ -10,88 +10,81 @@
  
     <!--carousel사진 크기-->
     <style> 
-        .filebox label { 
-          display: inline-block; 
-          padding: .5em .75em; 
-          color: white; 
-          font-size: inherit; 
-          line-height: normal; 
-          vertical-align: middle; 
-          background-color: red;
-          cursor: pointer; 
-          border: 1px solid #ebebeb; 
-          border-radius: .30em; 
-          } 
-          .filebox input[type="file"] {
-             /* 파일 필드 숨기기 */ 
-             position: absolute; 
-             width: 1px; 
-             height: 1px; 
-             padding: 0; 
-             margin: -1px; 
-             overflow: hidden; 
-             clip:rect(0,0,0,0); 
-             border: 0; }
-    
-        </style>
-        
-        </head>
-        <body>
-           <header>
-     <!--네비게이션 바-->
-        <div class="pt-5">
-     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!--바 색깔-->
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">
-              <img src="img/logobl.png"alt="" width="52" height="38"> <!--로고 이미지-->
-          </a>
-          <!--화면 크기가 줄어들면 메뉴버튼-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-             
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="ct.html">CT</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  etc
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="map.html">Map</a></li>
-                  <li><a class="dropdown-item" href="news.html">News</a></li>
-                </ul>
-              
-            </ul>
-        
-          </div>
+      .filebox label { 
+        display: inline-block; 
+        padding: .5em .75em; 
+        color: white; 
+        font-size: inherit; 
+        line-height: normal; 
+        vertical-align: middle; 
+        background-color: darkcyan;
+        cursor: pointer; 
+        border: 1px solid #ebebeb; 
+        border-radius: .30em; 
+        } 
+       
+  
+      </style>
+      
+      </head>
+      <body>
+         <header>
+   <!--네비게이션 바-->
+      <div class="pt-5">
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!--바 색깔-->
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="img/logobl.png"alt="" width="52" height="38"> <!--로고 이미지-->
+        </a>
+        <!--화면 크기가 줄어들면 메뉴버튼-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ct.html">CT</a>
+            </li>
+  
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                etc
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="map.html">Map</a></li>
+                <li><a class="dropdown-item" href="news.html">News</a></li>
+              </ul>
+            
+          </ul>
+      
         </div>
-      </nav>
-    </div>
-           </header>
-           <main>
-            <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-                <div class="col-md-5 p-lg-5 mx-auto my-5">
-                  <h3 class="display-5 fw-normal">CT이미지를 등록하고 검사를 받아보세요</h3>
-                  <p class="lead fw-normal">인공지능 모델을 이용하여 97%의 정확성으로 사용자 스스로 코로나 양성여부를 진단할 수 있게 됩니다.</p>
-                  <div class="filebox">
-                   <label for="ex_file">Upload</label>
-                   <a class="btn btn-outline-secondary" href="result.html">Submit</a>
-                  <input type="file" id="ex_file">
-                   </div>
-             
+      </div>
+    </nav>
+  </div>
+         </header>
+         <main>
+          <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+              <div class="col-md-5 p-lg-5 mx-auto my-5">
+                <h3 class="display-5 fw-normal">CT이미지를 등록하고 검사를 받아보세요</h3>
+                <p class="lead fw-normal">인공지능 모델을 이용하여 97%의 정확성으로 사용자 스스로 코로나 양성여부를 진단할 수 있게 됩니다.</p>
+                <div class="filebox">
+                 
+                 <label class="form-label" for="customFile">Image Upload</label>
+                 <input type="file" class="form-control" id="customFile" />
                
-                <div class="product-device shadow-sm d-none d-md-block"></div>
-                <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-              </div>
-    
+                 </div>
+                <br>
+                 <a class="btn btn-outline-secondary" href="result.html">Submit</a>
              
-</main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+              <div class="product-device shadow-sm d-none d-md-block"></div>
+              <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+            </div>
+  
+             </main>
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-</body>
-</html>
+             </body>
+             </html>
