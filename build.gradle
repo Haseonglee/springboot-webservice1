@@ -35,5 +35,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-devtools')
     compile group: 'org.webjars', name: 'bootstrap', version:'4.5.0'
     //for웹크롤링
-    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.13.1'
+    //implementation group: 'com.opencsv', name: 'opencsv', version: '4.4'
+
 }
